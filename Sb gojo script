@@ -1,0 +1,184 @@
+local abcd = false
+local abcd_ = false
+local abcd_0 = false
+local sg = Instance.new("ScreenGui",game.Players.LocalPlayer:WaitForChild("PlayerGui"))
+local f = Instance.new("Frame",sg)
+f.Size = UDim2.new(0.06,0,0.13,0)
+f.Position = UDim2.new(0.83,0,0.5,0)
+local ab = Instance.new("TextButton",f)
+ab.Size = UDim2.new(1,0,1,0)
+ab.Text = "Hollow Bullet"
+ab.TextSize = 14
+ab.TextColor3 = Color3.new(0.8,0,0)
+ab.Font = Enum.Font.Cartoon
+ab.TextWrapped = true
+ab.BackgroundTransparency = 1
+ab.MouseButton1Click:Connect(function()
+  if abcd then return end
+  abcd = true
+  local animation = Instance.new('Animation'); animation.AnimationId = 'rbxassetid://16144830595'; local humanoid = game.Players.LocalPlayer.Character:FindFirstChildOfClass('Humanoid') or game.Players.LocalPlayer.Character:FindFirstChildOfClass('AnimationController'); if humanoid then humanoid:LoadAnimation(animation):Play() end
+  game:GetService("ReplicatedStorage").RetroAbility:FireServer("Rocket Launcher")
+  wait(3.0189)
+  abcd = false
+end)
+local uig = Instance.new("UIGradient",f)
+uig.Color = ColorSequence.new({
+  ColorSequenceKeypoint.new(0,Color3.new(1,0,0)),
+  ColorSequenceKeypoint.new(0.5,Color3.fromRGB(35,35,35)),
+  ColorSequenceKeypoint.new(1,Color3.new(0,0,0))
+})
+uig.Rotation = 90
+local f_ = Instance.new("Frame",sg)
+f_.Size = UDim2.new(0.06,0,0.13,0)
+f_.Position = UDim2.new(0.91,0,0.5,0)
+local ab_ = Instance.new("TextButton",f_)
+ab_.Size = UDim2.new(1,0,1,0)
+ab_.Text = "RAGE AURA"
+ab_.TextSize = 14
+ab_.TextColor3 = Color3.new(0.8,0,0)
+ab_.Font = Enum.Font.Cartoon
+ab_.TextWrapped = true
+ab_.BackgroundTransparency = 1
+ab_.MouseButton1Click:Connect(function()
+  if abcd_ then return end
+  abcd_ = true
+  local animation = Instance.new("Animation");animation.AnimationId = "rbxassetid://13538759700";game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):LoadAnimation(animation):Play()
+  game:GetService("ReplicatedStorage").RetroAbility:FireServer("Ban Hammer")
+  local lastSlapTime = 0
+  local startTime = tick()
+  local connection
+  connection = game:GetService("RunService").Heartbeat:Connect(function()
+    if tick() - startTime >= 4 then
+      connection:Disconnect()
+      abcd_ = false
+      return
+    end
+    for _, p in ipairs(game:GetService("Players"):GetPlayers()) do
+      if p ~= game.Players.LocalPlayer and p.Character and p.Character:FindFirstChild("entered") then
+        if (p.Character.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 18 then
+          if tick() - lastSlapTime >= 0.38 then
+            game:GetService("ReplicatedStorage").GeneralHit:FireServer(p.Character.HumanoidRootPart)
+            lastSlapTime = tick()
+          end
+        end
+      end
+    end
+  end)
+  wait(3)
+end)
+local uig_ = Instance.new("UIGradient",f_)
+uig_.Color = ColorSequence.new({
+  ColorSequenceKeypoint.new(0,Color3.new(1,0,0)),
+  ColorSequenceKeypoint.new(0.5,Color3.fromRGB(35,35,35)),
+  ColorSequenceKeypoint.new(1,Color3.new(0,0,0))
+})
+uig_.Rotation = 90
+local f_0 = Instance.new("Frame",sg)
+f_0.Size = UDim2.new(0.06,0,0.13,0)
+f_0.Position = UDim2.new(0.91,0,0.33,0)
+local ab_0 = Instance.new("TextButton",f_0)
+ab_0.Size = UDim2.new(1,0,1,0)
+ab_0.Text = "Dodge Hit"
+ab_0.TextSize = 14
+ab_0.TextColor3 = Color3.new(0.8,0,0)
+ab_0.Font = Enum.Font.Cartoon
+ab_0.TextWrapped = true
+ab_0.BackgroundTransparency = 1
+ab_0.MouseButton1Click:Connect(function()
+  if abcd_0 then return end
+  abcd_0 = true
+  while task.wait() do
+    local target = nil
+    for _, p in ipairs(game.Players:GetPlayers()) do
+      if p ~= game.Players.LocalPlayer and p.Character:FindFirstChild("HumanoidRootPart") then
+        if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - p.Character.HumanoidRootPart.Position).Magnitude <= 20 then
+          target = p
+          break
+        end
+      end
+    end
+    if target then
+      local function playAnimation(animId)
+        local humanoid = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid") or game.Players.LocalPlayer.Character:FindFirstChildOfClass("AnimationController")
+        if humanoid then
+          local animation = Instance.new("Animation")
+          animation.AnimationId = "rbxassetid://" .. animId
+          humanoid:LoadAnimation(animation):Play()
+        end
+      end
+      playAnimation(102311271621551)
+      task.wait(0.78)
+      game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = target.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,-2.8)
+      playAnimation(17670135152)
+      game:GetService("ReplicatedStorage").GeneralHit:FireServer(target.Character.Head)
+      break
+    end
+  end
+  wait(1)
+  abcd_0 = false
+end)
+local uig_0 = Instance.new("UIGradient",f_0)
+uig_0.Color = ColorSequence.new({
+  ColorSequenceKeypoint.new(0,Color3.new(0,0,0)),
+  ColorSequenceKeypoint.new(0.5,Color3.fromRGB(35,35,35)),
+  ColorSequenceKeypoint.new(1,Color3.new(1,0,0))
+})
+uig_0.Rotation = 90
+local f_1 = Instance.new("Frame",sg)
+f_1.Size = UDim2.new(0.06,0,0.13,0)
+f_1.Position = UDim2.new(0.83,0,0.33,0)
+local ab_1 = Instance.new("TextButton",f_1)
+ab_1.Size = UDim2.new(1,0,1,0)
+ab_1.Text = "Teleport BeHide A Player"
+ab_1.TextSize = 14
+ab_1.TextColor3 = Color3.new(0.8,0,0)
+ab_1.Font = Enum.Font.Cartoon
+ab_1.TextWrapped = true
+ab_1.BackgroundTransparency = 1
+ab_1.MouseButton1Click:Connect(function()
+  while task.wait() do
+    if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+      local closestPlayer, closestDistance = nil, math.huge
+      for _, p in ipairs(game.Players:GetPlayers()) do
+        if p ~= game.Players.LocalPlayer and p.Character and p.Character:FindFirstChild("HumanoidRootPart") and p.Character:FindFirstChild("entered") then
+          if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - p.Character.HumanoidRootPart.Position).Magnitude < closestDistance then
+            closestPlayer, closestDistance = p, (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - p.Character.HumanoidRootPart.Position).Magnitude
+          end
+        end
+      end
+      if closestPlayer then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = closestPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,-3)
+        wait(1.5)
+        break
+      end
+    end
+  end
+end)
+local uig_1 = Instance.new("UIGradient",f_1)
+uig_1.Color = ColorSequence.new({
+  ColorSequenceKeypoint.new(0,Color3.new(0,0,0)),
+  ColorSequenceKeypoint.new(0.5,Color3.fromRGB(35,35,35)),
+  ColorSequenceKeypoint.new(1,Color3.new(1,0,0))
+})
+uig_1.Rotation = 90
+local btnf = Instance.new("Frame",sg)
+btnf.Size = UDim2.new(0.15,0,0.08,0)
+btnf.Position = UDim2.new(0.83,0,0,0)
+local btn = Instance.new("TextButton",btnf)
+btn.Size = UDim2.new(1,0,1,0)
+btn.Text = "GodMode"
+btn.TextSize = 14
+btn.TextColor3 = Color3.new(1,1,1)
+btn.Font = Enum.Font.Cartoon
+btn.TextWrapped = true
+btn.BackgroundTransparency = 1
+btn.MouseButton1Click:Connect(function()
+  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-4.0879974365234375, -8.9228515625, 1.8359999656677246)
+end)
+local uigbtn = Instance.new("UIGradient",btnf)
+uigbtn.Color = ColorSequence.new({
+  ColorSequenceKeypoint.new(0,Color3.new(0,0,0)),
+  ColorSequenceKeypoint.new(0.5,Color3.fromRGB(1,0,0)),
+  ColorSequenceKeypoint.new(1,Color3.new(0,0,0))
+})
+uigbtn.Rotation = 90
